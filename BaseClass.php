@@ -12,5 +12,14 @@
   	function setBackGround($_bg){
   	  $this->BackGround=$_bg;
   	}
+  	function getBackGround(){
+  	  return $this->BackGround;
+  	}
+  	function getUserName(){
+  	  return $this->UserName;
+  	}
+  	function getPassWord(){
+  	  return $this->PassWord;
+  	}
   }
 ?>
