@@ -2,21 +2,28 @@
 <html>
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Insert title here</title>
+  <title>SuperEditor</title>
   <link rel="stylesheet" href="Bootstrap/dist/css/bootstrap.min.css" type="text/css">
   <style type="text/css">
     .gray{
 	  background-color:gray;
       color:white;
     }
+    .container ul{
+	  display:inline;
+    }
   </style>
   <script type="text/javascript" src="Jquery/jquery-2.1.1.js"></script>
   <script type="text/javascript" src="lib/jsLib/MainJs.js"></script>
   </head>
   <body>
+  	   <ul class="nav" id="myNav">
+	     <li><a href="#">One word</a></li>
+	     <li><a href="#" id="txt"></a></li>
+	   </ul>
     <div class="container">
       <div class="row">
-        <div class="span7 offset5">
+        <div class="span7 offset2">
 	      <textarea id="mainText" rows="30" cols="140"></textarea>
 	    </div>
 	  </div>
