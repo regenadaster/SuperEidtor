@@ -9,19 +9,23 @@
 	  background-color:gray;
       color:white;
     }
-    .container ul{
+    #oneWord{
 	  display:inline;
+    }
+    #OneWord li{
+      list-style:none;
+      float:left;
     }
   </style>
   <script type="text/javascript" src="Jquery/jquery-2.1.1.js"></script>
   <script type="text/javascript" src="lib/jsLib/MainJs.js"></script>
   </head>
   <body>
-  	   <ul class="nav" id="myNav">
-	     <li><a href="#">One word</a></li>
-	     <li><a href="#" id="txt"></a></li>
-	   </ul>
     <div class="container">
+      <ul id="OneWord">
+         <li style="width:100px">One word:&nbsp;&nbsp;&nbsp;&nbsp;</li>
+	     <li id="txt"></li>
+	  </ul>
       <div class="row">
         <div class="span7 offset2">
 	      <textarea id="mainText" rows="30" cols="140"></textarea>

@@ -42,13 +42,12 @@
     function __construct(){
       $this->smallsplider=new splider();
       $this->smallsplider->setURL("http://xue.youdao.com/w");
-      $this->content=$this->smallsplider->getContent();  
-      $contentArr=preg_split('/<p class="sen">/',$this->content);
-      $word=preg_split('/</',$contentArr[1]);
-      //print_r($word);
-      $this->word=$word[0];
-      //$this->word=$wordAndAuthor[0];
-      //$this->author=$wordAndAuthor[1];
+      $this->content=$this->smallsplider->getContent(); 
+      //print_r($this->content); 
+      ereg('<p class="sen">(.{10,90})</p>',$this->content,$regs);
+      //print_r($regs[1]);
+      $word=$regs[1];
+      $this->word=$word;
     }
     function getWord(){
       return $this->word;
