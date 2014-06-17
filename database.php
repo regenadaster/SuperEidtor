@@ -19,11 +19,20 @@
   	var $dbPass;
   	var $dbName;
   	var $siteName;
+  	var $sqlSen;
+  	var $result;
   	function __construct(){
   	  $this->setDbName("superditor");
   	  $this->setPass("");
   	  $this->setUser("root");
   	  $this->site("localhost");
+  	}
+  	function setSql($sql){
+  	  $this->sqlSen=$sql;
+  	  //echo $sql;
+  	}
+  	function query(){
+  	  $this->result=$this->dbConnect->query($this->sqlSen);
   	}
   	function site($sitename){
   	  $this->siteName=$sitename;
