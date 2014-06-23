@@ -1,3 +1,11 @@
-<?php 
-  header("Location: http://127.0.0.1:8081/theSuperEditor/index.html");
+<?php
+  require_once 'BaseClass.php';
+  $appSetting=new BaseSetting();
+  $appSetting->init();
+  if(isset($_SESSION["username"])){
+    $appSetting->redirect($appSetting->getVal("baseUrl")."/index.html");
+  }
+  else{
+  	$appSetting->redirect($appSetting->getVal("baseUrl")."/login.html");
+  }
 ?>

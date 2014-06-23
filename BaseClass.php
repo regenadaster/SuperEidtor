@@ -3,6 +3,31 @@
   	var $UserName;
   	var $PassWord;
   	var $BackGround;
+  	function setVal($_name,$_value){
+  	  $_SESSION[$_name]=$_value;
+  	}
+  	function getVal($_name){
+  	  if(isset($_SESSION[$_name])){
+  	  	return $_SESSION[$_name];
+  	  }
+  	}
+  	function redirect($url){
+  	  $headUrl.="Location: ";
+  	  $headUrl.=$url;
+  	  header($headUrl);
+  	}
+  	function init(){
+  	  $this->setVal("Socket", "127.0.0.1:8081");
+  	  $this->setVal("RootDir", "/theSuperEditor");
+  	  $this->setVal("Protocol", "http://");
+  	  $this->setAppBaseUrl();
+  	}
+  	function setAppBaseUrl(){
+  	   $baseurl=$this->getVal("Protocol");
+  	   $baseurl.=$this->getVal("Socket");
+  	   $baseurl.=$this->getVal("RootDir");
+  	   $this->setVal("baseUrl",$baseurl);
+  	}
   	function setUserName($_name){
   	  $this->UserName=$_name;
   	}
