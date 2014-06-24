@@ -21,6 +21,7 @@
   	var $siteName;
   	var $sqlSen;
   	var $result;
+  	var $err;
   	function __construct(){
   	  $this->setDbName("superditor");
   	  $this->setPass("");
@@ -29,10 +30,11 @@
   	}
   	function setSql($sql){
   	  $this->sqlSen=$sql;
-  	  //echo $sql;
+  	  echo $sql;
   	}
   	function query(){
   	  $this->result=$this->dbConnect->query($this->sqlSen);
+  	  print_r($this->result);
   	}
   	function site($sitename){
   	  $this->siteName=$sitename;
@@ -47,11 +49,24 @@
   	  $this->dbPass=$pass;
   	}
   	function connect(){
-  	  $this->dbConnect=new mysqli($this->siteName,$this->dbUser,$this->dbPass,$this->dbName);
+  	  if(!isset($this->dbConnect)){
+  	    $this->dbConnect=new mysqli($this->siteName,$this->dbUser,$this->dbPass,$this->dbName);
+  	    if(!$this->dbConnect){
+  	      echo "bad";
+  	    }
+  	  }
   	  return $this->dbConnect;
   	}
   	function close(){
   	  $this->dbConnect->close();
+  	}
+  	function IsresultEmpty(){
+  	  if(empty($this->result)){
+  	  	return 1;
+  	  }
+  	  else{
+  	  	return 0;
+  	  }
   	}
   }
 ?>

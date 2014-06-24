@@ -23,10 +23,10 @@
   	  $this->setAppBaseUrl();
   	}
   	function setAppBaseUrl(){
-  	   $baseurl=$this->getVal("Protocol");
-  	   $baseurl.=$this->getVal("Socket");
-  	   $baseurl.=$this->getVal("RootDir");
-  	   $this->setVal("baseUrl",$baseurl);
+  	  $baseurl=$this->getVal("Protocol");
+  	  $baseurl.=$this->getVal("Socket");
+  	  $baseurl.=$this->getVal("RootDir");
+  	  $this->setVal("baseUrl",$baseurl);
   	}
   	function setUserName($_name){
   	  $this->UserName=$_name;
@@ -68,9 +68,7 @@
       $this->smallsplider=new splider();
       $this->smallsplider->setURL("http://xue.youdao.com/w");
       $this->content=$this->smallsplider->getContent(); 
-      //print_r($this->content); 
       ereg('<p class="sen">(.{10,90})</p>',$this->content,$regs);
-      //print_r($regs[1]);
       $word=$regs[1];
       $this->word=$word;
     }

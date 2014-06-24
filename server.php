@@ -5,6 +5,8 @@
   }
   else{	
 	  include "BaseClass.php";
+	  include "project.php";
+	  include "files.php";
 	  $setting=new BaseSetting();
 	  $setting->setBackGround("gray");
 	  if($_GET["query"]=="background"){
@@ -18,6 +20,9 @@
 	  if($_GET["query"]=="word"){
 	  	$data=array("word"=>$word);
 	  	echo json_encode($data);
+	  }
+	  if($_GET["query"]=="fileST"){
+	    $files=new file();
 	  }
   }
 ?>

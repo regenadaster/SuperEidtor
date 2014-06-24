@@ -5,6 +5,7 @@
   	var $userDb;
   	var $username;
   	var $passwd;
+  	var $userId;
   	var $projectArr=array();
   	function __construct(){
   	  $this->setName("");
@@ -31,7 +32,28 @@
   	  $this->userDb->connect();
   	  $this->userDb->setSql('select * from user where name='.'"'.$this->getName().'" AND password="'.$this->getPasswd().'";');
   	  $this->userDb->query();
-  	  echo $this->userDb->result;
+      if($this->userDb->IsresultEmpty()==0){
+      	echo "ÓÃ»§ÃûÃÜÂë´íÎó";
+      }
+      else{
+      	//echo "good";
+      	$this->getUserId();
+      }
+      $this->userDb->close();
+  	}
+  	function getUserId(){
+  	  //echo "here";
+  	  $this->userDb->connect();
+  	  $this->userDb->setSql('select id from user where name='.'"'.$this->getName().'" AND password="'.$this->getPasswd().'";');
+  	  $this->userDb->query();
+  	  $row = $this->userDb->result->fetch_array(MYSQLI_ASSOC);
+  	  	echo "here";
+  	  	$this->userId=$row->id;
+  	  	print_r($row);
+
+  	  //echo $this->userId;
+  	  echo "out";
+  	  $this->userDb->close();
   	}
   }
 ?>
